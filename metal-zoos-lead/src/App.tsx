@@ -18,6 +18,9 @@ import Layout from "./components/layout";
 import { resources } from "./config/resources";
 import Create from "./pages/company/create";
 import EditPage from "./pages/company/edit";
+import TasksList from "./pages/tasks/list";
+import TasksEditPage from "./pages/tasks/edit";
+import TasksCreatePage from "./pages/tasks/create";
 
 
 function App() {
@@ -63,6 +66,14 @@ function App() {
                         <Route index element= {<CompanyList />} />
                         <Route path="new" element={<Create />} />
                         <Route path="edit/:id" element={<EditPage />} />
+                      </Route>
+                      <Route path="/tasks" element= {
+                        <TasksList>
+                          <Outlet />
+                        </TasksList>
+                        }>
+                          <Route path="new" element={<TasksCreatePage />} />
+                          <Route path="edit/:id" element={<TasksEditPage />} />
                       </Route>
                   </Route>
                 </Routes>
